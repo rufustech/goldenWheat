@@ -19,7 +19,15 @@ app.use(express.json()); // Middleware for parsing JSON
 //Models
 
 //cors
-app.use(cors());
+app.use(
+  cors({
+    origin:
+      "https://golden-wheat-k6v466ajy-rufaro-mucheris-projects.vercel.app", // Allow your frontend's URL
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allow necessary HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers
+  })
+);
+
 app.use(morgan("dev"));
 
 // Connect to MongoDB
@@ -35,12 +43,10 @@ app.use("/api/auth", authRoute);
 app.use("/api/comments", commentsRoute);
 app.use("/api/cart", cartRoute);
 
-
 // Default Route
 app.get("/", (req, res) => {
   res.send("Welcome to the Node.js Server!");
 });
-
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

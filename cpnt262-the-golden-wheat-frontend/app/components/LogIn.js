@@ -36,8 +36,10 @@ export default function LogIn() {
   const [emailErr, setEmailErr] = useState("");
 
   // data from database
-  const url = "http://localhost:5000/api/user";
-  const authUrl = "http://localhost:5000/api/auth/login";
+  const url =
+    "https://golden-wheat-k6v466ajy-rufaro-mucheris-projects.vercel.app/api/user";
+  const authUrl =
+    "https://golden-wheat-k6v466ajy-rufaro-mucheris-projects.vercel.app/api/auth/login";
 
   // condition check
   const conditions = [
