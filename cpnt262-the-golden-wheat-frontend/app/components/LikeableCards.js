@@ -55,7 +55,7 @@ export default function LikeableCards({ cardProps }) {
       id={product.id}
     >
       <img
-        className="rounded-t-lg w-full h-40 object-cover"
+        className="rounded-t-lg w-full h-60 object-cover"
         src={product.image}
         alt=""
       />
@@ -65,7 +65,7 @@ export default function LikeableCards({ cardProps }) {
           {product.name}
         </h5>
 
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 h-44">
+        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 h-28">
           {product.description}
         </p>
         <div className="flex justify-between">

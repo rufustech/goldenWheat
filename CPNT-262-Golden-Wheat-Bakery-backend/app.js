@@ -19,14 +19,8 @@ app.use(express.json()); // Middleware for parsing JSON
 //Models
 
 //cors
-app.use(
-  cors({
-    origin: "*", // Allow your frontend's URL
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allow necessary HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers
-  })
-);
 
+app.use(cors());
 app.use(morgan("dev"));
 
 // Connect to MongoDB
