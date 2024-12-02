@@ -21,8 +21,7 @@ app.use(express.json()); // Middleware for parsing JSON
 //cors
 app.use(
   cors({
-    origin:
-      "https://golden-wheat-k6v466ajy-rufaro-mucheris-projects.vercel.app", // Allow your frontend's URL
+    origin: "*", // Allow your frontend's URL
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow necessary HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow necessary headers
   })
