@@ -14,8 +14,7 @@ export default function CardsGroupTest() {
   async function fetchProducts() {
     try {
       // change url to 4000 if mac
-      const url =
-        "https://golden-wheat-e4dcgdk6t-rufaro-mucheris-projects.vercel.app/api/products";
+      const url = "https://server-pink-eta-12.vercel.app/api/products";
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`response status: ${response.status}`);

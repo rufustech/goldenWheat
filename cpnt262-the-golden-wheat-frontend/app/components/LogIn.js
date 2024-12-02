@@ -36,10 +36,8 @@ export default function LogIn() {
   const [emailErr, setEmailErr] = useState("");
 
   // data from database
-  const url =
-    "https://golden-wheat-e4dcgdk6t-rufaro-mucheris-projects.vercel.app/api/user";
-  const authUrl =
-    "https://golden-wheat-e4dcgdk6t-rufaro-mucheris-projects.vercel.app/api/auth/login";
+  const url = "https://server-pink-eta-12.vercel.app/api/user";
+  const authUrl = "https://server-pink-eta-12.vercel.app/api/auth/login";
 
   // condition check
   const conditions = [
