@@ -193,152 +193,155 @@ export default function LogIn() {
   }
 
   return (
-    <form className={` w-full p-4`}>
-      <div className="flex flex-wrap mb-6">
-        {isCreateAcc && (
+    <div className="">
+      <form className={` w-full  p-4`}>
+        <div className="flex flex-wrap mb-6">
+          {isCreateAcc && (
+            <div className="w-full px-3">
+              <label
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="grid-first-name"
+              >
+                User Name
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="grid-first-name"
+                type="text"
+                placeholder="Jane"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setUserName(value);
+                  usernameCondition(value);
+                }}
+              />
+              <p className="text-red-500 text-xs italic min-h-[20px]">
+                {usernameErr && usernameErr}
+              </p>
+            </div>
+          )}
           <div className="w-full px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-first-name"
+              htmlFor="grid-last-name"
             >
-              User Name
+              Email
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              id="grid-first-name"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              id="grid-last-name"
               type="text"
-              placeholder="Jane"
+              placeholder="emailhere@gmail.com"
               onChange={(e) => {
                 const value = e.target.value;
-                setUserName(value);
-                usernameCondition(value);
+                setEmail(value);
+                emailConditions(value);
               }}
             />
-            <p className="text-red-500 text-xs italic min-h-[20px]">
-              {usernameErr && usernameErr}
-            </p>
           </div>
-        )}
-        <div className="w-full px-3">
-          <label
-            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            htmlFor="grid-last-name"
-          >
-            Email
-          </label>
-          <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="grid-last-name"
-            type="text"
-            placeholder="emailhere@gmail.com"
-            onChange={(e) => {
-              const value = e.target.value;
-              setEmail(value);
-              emailConditions(value);
-            }}
-          />
-        </div>
-        <br></br>
-        <p className="text-red-600 text-xs italic aria-[]:">
-          {emailErr && emailErr}
-        </p>
-      </div>
-      <div className="flex flex-wrap  mb-6">
-        <div className="w-full px-3">
-          <label
-            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            htmlFor="grid-password"
-          >
-            Password
-          </label>
-          <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            id="grid-password"
-            type="password"
-            placeholder="******************"
-            onChange={(e) => {
-              const value = e.target.value;
-              setPassword(value);
-              passwordConditions(value);
-            }}
-          />
-          <p className="text-red-500 text-xs italic">
-            {passwordErr && passwordErr}
+          <br></br>
+          <p className="text-red-600 text-xs italic aria-[]:">
+            {emailErr && emailErr}
           </p>
         </div>
-      </div>
-      {isCreateAcc && (
-        <div className={`flex flex-wrap mb-6`}>
+        <div className="flex flex-wrap  mb-6">
           <div className="w-full px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               htmlFor="grid-password"
             >
-              Confirm Password
+              Password
             </label>
             <input
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="grid-password-confirm"
+              id="grid-password"
               type="password"
               placeholder="******************"
               onChange={(e) => {
                 const value = e.target.value;
-                setPasswordConfirm(value);
-                passwordConfirmConditions(value);
+                setPassword(value);
+                passwordConditions(value);
               }}
             />
-
             <p className="text-red-500 text-xs italic">
-              {passwordConfirmErr && passwordConfirmErr}
+              {passwordErr && passwordErr}
             </p>
           </div>
         </div>
-      )}
+        {isCreateAcc && (
+          <div className={`flex flex-wrap mb-6`}>
+            <div className="w-full px-3">
+              <label
+                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Confirm Password
+              </label>
+              <input
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-password-confirm"
+                type="password"
+                placeholder="******************"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setPasswordConfirm(value);
+                  passwordConfirmConditions(value);
+                }}
+              />
 
-      <button
-        className="px-4 py-2 m-2 bg-transparent border-yellow-400 rounded-3xl hover:grow hover:bg-white disabled:bg-slate-600 disabled:text-white bg-yellow-50"
-        id="SubmitBtn"
-        disabled={!isFormValid}
-        onClick={(e) => {
-          e.preventDefault();
-          isCreateAcc ? handleCreateAcc() : handleSignIn(username);
-        }}
-      >
-        Submit
-      </button>
+              <p className="text-red-500 text-xs italic">
+                {passwordConfirmErr && passwordConfirmErr}
+              </p>
+            </div>
+          </div>
+        )}
 
-      {!isCreateAcc ? (
-        <>
-          <p className="text-center">If you do not have an account,</p>
-          <button
-            className="text-blue-800 text-lg text-center w-full"
+        <button
+          className="px-4 py-2 m-2 bg-transparent border-yellow-400 rounded-3xl hover:grow hover:bg-white disabled:bg-slate-600 disabled:text-white bg-yellow-50"
+          id="SubmitBtn"
+          disabled={!isFormValid}
+          onClick={(e) => {
+            e.preventDefault();
+            isCreateAcc ? handleCreateAcc() : handleSignIn(username);
+          }}
+        >
+          Submit
+        </button>
+
+        {!isCreateAcc ? (
+          <>
+            <p className="text-center">If you do not have an account,</p>
+            <button
+              className="text-blue-800 text-lg text-center w-full"
+              onClick={(e) => {
+                e.preventDefault();
+                userHasNoAcc();
+              }}
+            >
+              Create Here!
+            </button>
+
+            {formDataToShow && (
+              <p>
+                username or password does not match our records, please try
+                again.
+              </p>
+            )}
+          </>
+        ) : (
+          <p
+            className="text-center"
             onClick={(e) => {
               e.preventDefault();
               userHasNoAcc();
             }}
           >
-            Create Here!
-          </button>
-
-          {formDataToShow && (
-            <p>
-              username or password does not match our records, please try again.
-            </p>
-          )}
-        </>
-      ) : (
-        <p
-          className="text-center"
-          onClick={(e) => {
-            e.preventDefault();
-            userHasNoAcc();
-          }}
-        >
-          If you want to sign in,
-          <br></br>
-          <button className="text-blue-800 text-lg"> Click Here!</button>
-        </p>
-      )}
-    </form>
+            If you want to sign in,
+            <br></br>
+            <button className="text-blue-800 text-lg"> Click Here!</button>
+          </p>
+        )}
+      </form>
+    </div>
   );
 }
