@@ -8,7 +8,7 @@ export default function GroupCards() {
   async function fetchProducts() {
     try {
       const url =
-        "https://golden-wheat-k6v466ajy-rufaro-mucheris-projects.vercel.app/api/products";
+        "https://golden-wheat-e4dcgdk6t-rufaro-mucheris-projects.vercel.app/api/products";
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`response status: ${response.status}`);

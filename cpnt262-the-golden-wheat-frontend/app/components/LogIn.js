@@ -37,9 +37,9 @@ export default function LogIn() {
 
   // data from database
   const url =
-    "https://golden-wheat-k6v466ajy-rufaro-mucheris-projects.vercel.app/api/user";
+    "https://golden-wheat-e4dcgdk6t-rufaro-mucheris-projects.vercel.app/api/user";
   const authUrl =
-    "https://golden-wheat-k6v466ajy-rufaro-mucheris-projects.vercel.app/api/auth/login";
+    "https://golden-wheat-e4dcgdk6t-rufaro-mucheris-projects.vercel.app/api/auth/login";
 
   // condition check
   const conditions = [
